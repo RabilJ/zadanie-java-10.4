@@ -1,35 +1,33 @@
 package zadanie10.domowe3;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.*;
 
 public class Test {
-    public static void main(String[] args) {
-        Product[] products = new Product[3];
+    public static void main(String[] args) throws IOException {
+        List<Product> products = new ArrayList<>();
 
-        File file = new File("produkty.csv");
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        createList.create(products);
+
+        for (Product product : products) {
+            System.out.println(product);
         }
-        try {
-            FileReader fr = new FileReader(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        System.out.println("");
+        System.out.printf("Suma cen produktów: %.2f",sumPrices(products));
+        System.out.println("");
+        Product MostExpensive = Collections.max(products, new compPrice());
+        System.out.println("Najdroższy produkt:\n"+MostExpensive);
+
+
+
     }
 
-        private static double sumPrices(Product[]products){
-            int sum = 0;
-            for (int i = 0; i < products.length; i++) {
-                sum+=products[i].getPrice();
-            }
-            return sum;
-            }
-
+    private static double sumPrices(List<Product>products) {
+        double sum = 0;
+        for (Product product : products) {
+            sum+=product.getPrice();
+        }
+        return sum;
     }
+
+}
