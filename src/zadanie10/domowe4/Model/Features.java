@@ -1,9 +1,9 @@
 package zadanie10.domowe4.Model;
 
 public abstract class Features {
-    String model;
-    String producent;
-    String serial;
+    private String model;
+    private String producent;
+    private String serial;
 
     public String getModel() {
         return model;
