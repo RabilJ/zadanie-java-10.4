@@ -8,16 +8,10 @@ public class PersonCreator {
     public static Person birth(){
         System.out.println("Imię: ");
         String name = sc.nextLine();
-        if(name==null||name.length()<3){
-            throw new NameUndefinedException();
-        }
         System.out.println("Nazwisko");
         String surname = sc.nextLine();
         System.out.println("Wiek: ");
         int age = sc.nextInt();
-        if(age<0){
-            throw new IncorrectAgeException();
-        }
         sc.nextLine();
         System.out.println("Pesel: ");
         String pesel = sc.nextLine();

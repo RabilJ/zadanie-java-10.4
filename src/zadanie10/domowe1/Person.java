@@ -11,6 +11,12 @@ public class Person {
         this.lastName = lastName;
         this.age = age;
         this.pesel = pesel;
+        if(firstName==null||firstName.length()<3){
+            throw new NameUndefinedException();
+        }
+        if(age<0){
+            throw new IncorrectAgeException();
+        }
     }
 
     public String getFirstName() {
